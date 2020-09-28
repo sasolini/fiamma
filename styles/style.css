@@ -180,6 +180,27 @@ section {
   color: #362928;
 }
 
+.vertical-text-wrapper {
+  width: 350px;
+  height: 100%;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.vertical-text-wrapper .big-date-wrapper {
+  top: 50%;
+  -webkit-transform: rotate(-90deg) translate(-100%, 20%);
+          transform: rotate(-90deg) translate(-100%, 20%);
+}
+
+.vertical-text-wrapper .big-date {
+  font-size: 40vh;
+  line-height: 0;
+  font-family: 'averta-bold';
+  letter-spacing: 0;
+  color: #362928;
+}
+
 .home {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -357,36 +378,21 @@ section {
   opacity: 0.2;
 }
 
-.slide2 .vertical-text-wrapper {
-  width: 350px;
-  background-color: #ffffff;
-  position: relative;
-}
-
-.slide2 .vertical-text-wrapper .big-date-wrapper {
-  top: 50%;
-  -webkit-transform: rotate(-90deg) translate(-50%, 50%);
-          transform: rotate(-90deg) translate(-50%, 50%);
-}
-
-.slide2 .vertical-text-wrapper .big-date {
-  font-size: 50vh;
-  line-height: 0;
-  font-family: 'averta-bold';
-  letter-spacing: 0;
-  color: #362928;
-}
-
 .slide3 {
   background-color: white;
   min-width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .slide3 > .content {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin-top: auto;
   height: 80vh;
   padding-left: 35rem;
   padding-right: 3rem;
@@ -399,9 +405,8 @@ section {
           flex-direction: column;
 }
 
-.slide3 > .content h1 {
-  color: #fe6153;
-  width: 45.2rem;
+.slide3 > .content h2 {
+  width: 58rem;
 }
 
 .slide3 > .content .hline {
@@ -412,10 +417,46 @@ section {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
-  max-width: 453px;
+  max-width: 53rem;
 }
 
-.slide3 .slide-index-box > .content {
-  left: 400px;
+.slide3 .documents {
+  min-width: 100vw;
+  height: 100%;
+  background-color: #fe6153;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.slide3 .documents .map {
+  display: inline-block;
+  padding-left: 35rem;
+  height: 100%;
+  width: auto;
+  background-color: #ffffff;
+}
+
+.slide3 .documents .article {
+  margin-right: 5rem;
+}
+
+.slide3 .documents .one {
+  height: 40vh;
+}
+
+.slide3 .documents .two {
+  height: 80vh;
+}
+
+.slide3 .documents .three {
+  height: 100vh;
+}
+
+.slide4 .big-date {
+  color: #fe6153;
 }
 /*# sourceMappingURL=style.css.map */
