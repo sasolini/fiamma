@@ -2,6 +2,7 @@
   function scrollHorizontally(e) {
     setScroll(e);
     calcSlideIndexBoxOffset('slide3');
+    handleMachineSelector();
   }
 
   function setScroll(e) {
@@ -68,6 +69,20 @@
   } else {
     // IE 6/7/8
     window.attachEvent('onmousewheel', scrollHorizontally);
+  }
+
+  function handleMachineSelector(){
+    var wrapper = document.querySelector('.machines-wrapper');
+    var machines = document.querySelectorAll('.machines-wrapper .machine');
+
+    machines.forEach(function(machine) {
+      machine.addEventListener('mouseenter', function () {
+          wrapper.classList.add(machine.dataset.target);
+      });
+      machine.addEventListener('mouseleave', function () {
+          wrapper.classList.remove(machine.dataset.target);
+      });
+    });
   }
 })();
 
