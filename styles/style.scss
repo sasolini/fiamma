@@ -443,9 +443,13 @@ section {
     align-items: center;
 
     .article {
-      margin-right: 5rem;
+      // margin-right: 5rem;
       height: 100vh;
-      transition: transform 300ms ease-in-out;
+      transition: transform 100ms ease-in-out;
+
+      &:not(:first-child) {
+        margin-left: -10rem;
+      }
     }
 
     .one {
@@ -993,7 +997,7 @@ section {
   }
 
   .brown-bg {
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;

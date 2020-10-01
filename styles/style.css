@@ -489,12 +489,15 @@ section {
 }
 
 .slide3 .documents .article {
-  margin-right: 5rem;
   height: 100vh;
-  -webkit-transition: -webkit-transform 300ms ease-in-out;
-  transition: -webkit-transform 300ms ease-in-out;
-  transition: transform 300ms ease-in-out;
-  transition: transform 300ms ease-in-out, -webkit-transform 300ms ease-in-out;
+  -webkit-transition: -webkit-transform 100ms ease-in-out;
+  transition: -webkit-transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out;
+  transition: transform 100ms ease-in-out, -webkit-transform 100ms ease-in-out;
+}
+
+.slide3 .documents .article:not(:first-child) {
+  margin-left: -10rem;
 }
 
 .slide3 .documents .one {
@@ -1104,7 +1107,7 @@ section {
 }
 
 .slide13 .brown-bg {
-  width: 100%;
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

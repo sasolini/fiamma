@@ -1,73 +1,125 @@
+'use strict';
+
+const UI = {
+  slide3: {
+    slide: document.getElementsByClassName('slide3')[0],
+    box: function () {
+      return this.slide.getElementsByClassName('slide-index-box')[0];
+    },
+    items: {
+      articleOne: document.getElementById('article-one'),
+      articleTwo: document.getElementById('article-two'),
+      articleThree: document.getElementById('article-three'),
+    },
+  },
+};
+
+const setScroll = e => {
+  e = window.event || e;
+  const delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
+  document.documentElement.scrollLeft -= delta * 60;
+  document.body.scrollLeft -= delta * 60;
+};
+
+const getSlidePosition = slideClassName => {
+  const { slide } = UI[`${slideClassName}`];
+  // const slide = document.getElementsByClassName(slideClassName)[0];
+  const slideStart = slide.offsetLeft;
+  const slideEnd = slideStart + slide.offsetWidth;
+
+  return { slide, slideStart, slideEnd };
+};
+
+const calcSlideIndexBoxOffset = slideClassName => {
+  const margin = 300;
+  const scrollX = window.scrollX;
+  const { slide, slideStart, slideEnd } = getSlidePosition(slideClassName);
+  const box = UI[`${slideClassName}`].box;
+  // const box = slide.getElementsByClassName('slide-index-box')[0];
+  const boxOffset = box.offsetLeft;
+
+  if (scrollX > slideStart + boxOffset && scrollX < slideEnd && boxOffset > 0) {
+    box.style.marginLeft = `0px`;
+  }
+
+  if (
+    scrollX > slideStart &&
+    boxOffset === 0 &&
+    scrollX < slideStart + margin
+  ) {
+    box.style.marginLeft = `${margin}px`;
+  }
+};
+
+const getSlideCenterViewPercen = slideClassName => {
+  const halfWindowWidth = window.innerWidth / 2;
+  let currentPositionPercent = 0;
+  let currentCenterPositionPercent = 0;
+  const { slideStart, slideEnd } = getSlidePosition(slideClassName);
+
+  if (scrollX > slideStart - halfWindowWidth && scrollX < slideEnd) {
+    const slideWidth = slideEnd - slideStart;
+    const currentPosition = scrollX - slideStart;
+    const currentCenterPosition = scrollX + halfWindowWidth - slideStart;
+
+    currentPositionPercent = ((currentPosition / slideWidth) * 100).toFixed(2);
+    currentCenterPositionPercent = (
+      (currentCenterPosition / slideWidth) *
+      100
+    ).toFixed(2);
+  }
+
+  console.log(currentCenterPositionPercent);
+
+  return {
+    currentPositionPercent,
+    currentCenterPositionPercent,
+    halfWindowWidth,
+  };
+};
+
+const setItemScale = (edge, center, item) => {
+  const { currentCenterPositionPercent } = getSlideCenterViewPercen('slide3');
+  const articleOneScale = center - edge;
+
+  if (
+    currentCenterPositionPercent > edge &&
+    currentCenterPositionPercent < center
+  ) {
+    const scale = (
+      (currentCenterPositionPercent - edge) /
+      articleOneScale
+    ).toFixed(2);
+    item.style.transform = `scale(${scale})`;
+  } else if (currentCenterPositionPercent > center) {
+    item.style.transform = `scale(1)`;
+  } else if (currentCenterPositionPercent < edge) {
+    item.style.transform = `scale(0.2)`;
+  }
+};
+
+const Slide3DocAnimation = () => {
+  const { articleOne, articleTwo, articleThree } = UI.slide3.items;
+  setItemScale(38, 55, articleOne);
+  setItemScale(48, 71, articleTwo);
+  setItemScale(58, 85, articleThree);
+};
+
 (function () {
-  function scrollHorizontally(e) {
+  function initAll(e) {
     setScroll(e);
     calcSlideIndexBoxOffset('slide3');
-  }
-
-  function setScroll(e) {
-    e = window.event || e;
-    const delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
-    document.documentElement.scrollLeft -= delta * 60;
-    document.body.scrollLeft -= delta * 60;
-  }
-
-  // function calcSlideIndexBoxOffset() {
-  //   const scrollY = window.scrollY;
-
-  //   const slide = document.getElementsByClassName('slide3')[0];
-  //   const box = slide.getElementsByClassName('slide-index-box')[0];
-
-  //   const slideOffset = slide.offsetLeft;
-  //   const boxOffset = box.offsetLeft;
-  //   const margin = boxOffset - slideOffset;
-  //   console.log('slide: ', slideOffset, 'box: ', boxOffset);
-
-  //   if (scrollY > slideOffset && margin > 0) {
-  //     const newMargin = margin - (scrollY - slideOffset);
-  //     slide.style.marginLeft = `${newMargin}px`;
-  //   }
-  // }
-
-  function getSlidePosition(slideClassName) {
-    const slide = document.getElementsByClassName(slideClassName)[0];
-    const slideStart = slide.offsetLeft;
-    const slideEnd = slideStart + slide.offsetWidth;
-
-    return { slide, slideStart, slideEnd };
-  }
-
-  function calcSlideIndexBoxOffset(slideClassName) {
-    const margin = 300;
-    const scrollX = window.scrollX;
-    const { slide, slideStart, slideEnd } = getSlidePosition(slideClassName);
-    const box = slide.getElementsByClassName('slide-index-box')[0];
-    const boxOffset = box.offsetLeft;
-
-    if (
-      scrollX > slideStart + boxOffset &&
-      scrollX < slideEnd &&
-      boxOffset > 0
-    ) {
-      box.style.marginLeft = `0px`;
-    }
-
-    if (
-      scrollX > slideStart &&
-      boxOffset === 0 &&
-      scrollX < slideStart + margin
-    ) {
-      box.style.marginLeft = `${margin}px`;
-    }
+    Slide3DocAnimation();
   }
 
   if (window.addEventListener) {
     // IE9, Chrome, Safari, Opera
-    window.addEventListener('mousewheel', scrollHorizontally, false);
+    window.addEventListener('mousewheel', initAll, false);
     // Firefox
-    window.addEventListener('DOMMouseScroll', scrollHorizontally, false);
+    window.addEventListener('DOMMouseScroll', initAll, false);
   } else {
     // IE 6/7/8
-    window.attachEvent('onmousewheel', scrollHorizontally);
+    window.attachEvent('onmousewheel', initAll);
   }
 })();
 
