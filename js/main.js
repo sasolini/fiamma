@@ -12,6 +12,13 @@ const UI = {
       articleThree: document.getElementById('article-three'),
     },
   },
+  slide8: {
+    slide: document.getElementsByClassName('slide8')[0],
+    items: {
+      topPhoto: document.getElementById('js-top-photo'),
+      bottomPhoto: document.getElementById('js-bottom-photo'),
+    },
+  },
 };
 
 const setScroll = e => {
@@ -23,7 +30,6 @@ const setScroll = e => {
 
 const getSlidePosition = slideClassName => {
   const { slide } = UI[`${slideClassName}`];
-  // const slide = document.getElementsByClassName(slideClassName)[0];
   const slideStart = slide.offsetLeft;
   const slideEnd = slideStart + slide.offsetWidth;
 
@@ -35,7 +41,6 @@ const calcSlideIndexBoxOffset = slideClassName => {
   const scrollX = window.scrollX;
   const { slide, slideStart, slideEnd } = getSlidePosition(slideClassName);
   const box = UI[`${slideClassName}`].box;
-  // const box = slide.getElementsByClassName('slide-index-box')[0];
   const boxOffset = box.offsetLeft;
 
   if (scrollX > slideStart + boxOffset && scrollX < slideEnd && boxOffset > 0) {
@@ -80,16 +85,15 @@ const getSlideCenterViewPercen = slideClassName => {
 
 const setItemScale = (edge, center, item) => {
   const { currentCenterPositionPercent } = getSlideCenterViewPercen('slide3');
-  const articleOneScale = center - edge;
+  const itemScale = center - edge;
 
   if (
     currentCenterPositionPercent > edge &&
     currentCenterPositionPercent < center
   ) {
-    const scale = (
-      (currentCenterPositionPercent - edge) /
-      articleOneScale
-    ).toFixed(2);
+    const scale = ((currentCenterPositionPercent - edge) / itemScale).toFixed(
+      2
+    );
     item.style.transform = `scale(${scale})`;
   } else if (currentCenterPositionPercent > center) {
     item.style.transform = `scale(1)`;
@@ -98,18 +102,48 @@ const setItemScale = (edge, center, item) => {
   }
 };
 
-const Slide3DocAnimation = () => {
+const Slide3Animation = () => {
   const { articleOne, articleTwo, articleThree } = UI.slide3.items;
   setItemScale(38, 55, articleOne);
   setItemScale(48, 71, articleTwo);
   setItemScale(58, 85, articleThree);
 };
 
+// TODO
+const setItemSlide = (edge, center, item, direction) => {
+  const { currentCenterPositionPercent } = getSlideCenterViewPercen('slide8');
+  const itemScale = center - edge;
+
+  if (
+    currentCenterPositionPercent > edge &&
+    currentCenterPositionPercent < center
+  ) {
+    const scale = ((currentCenterPositionPercent - edge) / itemScale).toFixed(
+      2
+    );
+    item.style.transform = `translate(${direction === 'left' ? '-' : ''}${
+      scale * 100 + 20
+    }%)`;
+    console.log(scale);
+  } else if (currentCenterPositionPercent > center) {
+    item.style.transform = `translate(${direction === 'left' ? '-' : ''}120%)`;
+  } else if (currentCenterPositionPercent < edge) {
+    item.style.transform = `translate(0%)`;
+  }
+};
+
+const Slide8Animation = () => {
+  const { topPhoto, bottomPhoto } = UI.slide8.items;
+  setItemSlide(60, 68, topPhoto, 'left');
+  setItemSlide(60, 66, bottomPhoto);
+};
+
 (function () {
   function initAll(e) {
     setScroll(e);
     calcSlideIndexBoxOffset('slide3');
-    Slide3DocAnimation();
+    Slide3Animation();
+    Slide8Animation();
   }
 
   if (window.addEventListener) {
