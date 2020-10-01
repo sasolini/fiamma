@@ -358,6 +358,36 @@
         <a class="btn" href="#">ver máquinas</a>
       </div>
 
+      <div class="machines-wrapper">
+        <div class="machines-selector grid">
+          <a class="machine astrolab" data-target="astrolab" href="/machines/astrolab-3">
+              <!-- <img src="https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/astrolab@2x.png"> -->
+              <div class="icon"></div>
+              <div class="name">astrolab</div>
+          </a>
+          <a class="machine vela" data-target="vela" href="/machines/vela-pp">
+              <div class="icon"></div>
+              <div class="name">vela</div>
+          </a>
+          <a class="machine compass" data-target="compass" href="/machines/compass-3mb">
+              <div class="icon"></div>
+              <div class="name">compass</div>
+          </a>
+          <a class="machine quadrant" data-target="quadrant" href="/machines/quadrant-3">
+              <div class="icon"></div>
+              <div class="name">quadrant</div>
+          </a>
+          <a class="machine caravel" data-target="caravel" href="/machines/caravel-2cv">
+              <div class="icon"></div>
+              <div class="name">caravel</div>
+          </a>
+          <a class="machine marina" data-target="marina" href="/machines/marina-cv">
+              <div class="icon"></div>
+              <div class="name">marina</div>
+          </a>
+        </div>
+      </div>
+
     </section>
 
     <!-- slide8 -->
@@ -709,5 +739,113 @@
   </main>
 
   <script src="./js/main.js"></script>
+  <style type="text/css">
+    .machines-wrapper {
+        margin: auto 0 auto 10rem;
+        padding-right: 480px;
+        background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/machines-bg.png);
+        background-repeat: no-repeat;
+        background-position: center right;
+        -webkit-transition: background-image 800ms ease-in-out;
+        -moz-transition: background-image 800ms ease-in-out;
+        -o-transition: background-image 800ms ease-in-out;
+        transition: background-image 800ms ease-in-out;
+    }
+
+    .machines-wrapper.astrolab { background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/astrolab-side.png) !important; }
+    .machines-wrapper.caravel  { background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/caravel-side.png) !important; }
+    .machines-wrapper.vela     { background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/vela-side.png) !important; }
+    .machines-wrapper.marina   { background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/marina-side.png) !important; }
+    .machines-wrapper.quadrant { background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/quadrant-side.png) !important; }
+    .machines-wrapper.compass  { background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/compass-side.png) !important; }
+
+
+    .machines-selector {
+        width: 400px;
+        grid-gap: 0;
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+    }
+
+    .machines-selector .machine {
+        grid-column: span 4;
+        text-align: center;
+        padding: 50px 0 40px;
+        text-decoration: none;
+        outline: none;
+        width: 200px;
+        overflow: hidden;
+    }
+
+    .machines-selector .machine:hover {
+        background-color: var(--white);
+        box-shadow: 0 30px 30px -15px rgba(255, 94, 80, 0.15);
+    }
+
+    .machines-selector .machine .icon {
+        height: 90px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        -webkit-transition: background-image 100ms ease-in-out;
+        -moz-transition: background-image 100ms ease-in-out;
+        -o-transition: background-image 100ms ease-in-out;
+        transition: background-image 100ms ease-in-out;
+    }
+
+    .machines-selector .machine.astrolab .icon {
+      background-image: url("./img/slide7/astrolab@2x.png");
+    }
+    .machines-selector .machine.vela .icon {
+      background-image: url("./img/slide7/vela@2x.png");
+    }
+    .machines-selector .machine.compass .icon {
+      background-image: url("./img/slide7/compass@2x.png");
+    }
+    .machines-selector .machine.quadrant .icon {
+      background-image: url("./img/slide7/quadrant@2x.png");
+    }
+    .machines-selector .machine.caravel .icon {
+      background-image: url("./img/slide7/caravel@2x.png");
+    }
+    .machines-selector .machine.marina .icon {
+      background-image: url("./img/slide7/marina@2x.png");
+    }
+
+    .machines-selector .machine.astrolab:hover .icon {
+      background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/astrolab@2x.png");
+    }
+    .machines-selector .machine.vela:hover .icon {
+      background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/vela@2x.png");
+    }
+    .machines-selector .machine.compass:hover .icon {
+      background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/compass@2x.png");
+    }
+    .machines-selector .machine.quadrant:hover .icon {
+      background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/quadrant@2x.png");
+    }
+    .machines-selector .machine.caravel:hover .icon {
+      background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/caravel@2x.png");
+    }
+    .machines-selector .machine.marina:hover .icon {
+      background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/marina@2x.png");
+    }
+
+    .machines-selector .machine .name {
+        font-size: 22px;
+        font-family: var(--bold);
+        /* line-height: 34px; */
+        color: var(--black);
+        margin-top: 18px;
+    }
+
+    .machines-selector .machine .version {
+        margin-top: 20px;
+        color: var(--grey-dark);
+        font-size: 13px;
+        opacity: 0.5;
+    }
+
+  </style>
 </body>
 </html>

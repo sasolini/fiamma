@@ -45,6 +45,7 @@ const calcSlideIndexBoxOffset = slideClassName => {
 
   if (scrollX > slideStart + boxOffset && scrollX < slideEnd && boxOffset > 0) {
     box.style.marginLeft = `0px`;
+
   }
 
   if (
@@ -144,6 +145,7 @@ const Slide8Animation = () => {
     calcSlideIndexBoxOffset('slide3');
     Slide3Animation();
     Slide8Animation();
+    handleMachineSelector();
   }
 
   if (window.addEventListener) {
@@ -154,6 +156,20 @@ const Slide8Animation = () => {
   } else {
     // IE 6/7/8
     window.attachEvent('onmousewheel', initAll);
+  }
+
+  function handleMachineSelector(){
+    var wrapper = document.querySelector('.machines-wrapper');
+    var machines = document.querySelectorAll('.machines-wrapper .machine');
+
+    machines.forEach(function(machine) {
+      machine.addEventListener('mouseenter', function () {
+          wrapper.classList.add(machine.dataset.target);
+      });
+      machine.addEventListener('mouseleave', function () {
+          wrapper.classList.remove(machine.dataset.target);
+      });
+    });
   }
 })();
 
