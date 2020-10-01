@@ -443,9 +443,12 @@ section {
     align-items: center;
 
     .article {
-      margin-right: 5rem;
       height: 100vh;
-      transition: transform 300ms ease-in-out;
+      transition: transform 50ms ease-in-out;
+
+      &:not(:first-child) {
+        margin-left: -10rem;
+      }
     }
 
     .one {
@@ -708,14 +711,12 @@ section {
   .img-wrapper {
     position: absolute;
     top: 0;
-    // height: 100%;
     height: auto;
     max-height: 40vh;
     width: 45%;
-    // min-width: 50vh;
+    transition: trasform 100ms ease-in-out;
 
     img {
-      // width: 100%;
       height: auto;
     }
   }
@@ -993,7 +994,7 @@ section {
   }
 
   .brown-bg {
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
