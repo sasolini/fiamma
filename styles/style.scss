@@ -398,29 +398,11 @@ header {
 
   .numbers {
     position: absolute;
-    bottom: -20px;
-    right: 20px;
+    bottom: 16vh;
+    right: 30px;
     z-index: -1;
-    width: 30vh;
-    height: 100vh;
-
-    & > span {
-      color: white;
-      transform: rotate(90deg);
-      font-size: 9rem;
-    }
-
-    & > .numbers_small {
-      position: absolute;
-      top: 17%;
-      right: 50%;
-      transform: rotate(-90deg) translate(-25%, 214%);
-      // z-index: 2;
-    }
-
-    & > .numbers_big {
-      opacity: 0.2;
-    }
+    // width: 30vh;
+    height: 82vh;
   }
 
   .waves-wrapper {
