@@ -184,6 +184,7 @@ section {
 
 .slide-index-box > .content .icon-small {
   width: 20px;
+  height: 20px;
 }
 
 .slide-index-box > .content .icon-big {
@@ -191,6 +192,7 @@ section {
   bottom: -30px;
   right: 0;
   width: 100px;
+  height: 100px;
   opacity: 0.2;
 }
 
@@ -220,6 +222,16 @@ section {
   color: #362928;
 }
 
+.slide-index-box.portugal .icon-small,
+.slide-index-box.portugal .icon-big {
+  background: url(../img/box_logo_portugal.svg) no-repeat;
+}
+
+.slide-index-box.fiamma .icon-small,
+.slide-index-box.fiamma .icon-big {
+  background: url(../img/box_logo_fiamma.svg) no-repeat;
+}
+
 .vertical-text-wrapper {
   height: 100%;
   margin-left: 5rem;
@@ -235,8 +247,9 @@ section {
   top: 0;
   left: 0;
   background-color: white;
-  width: 200px;
-  height: 60px;
+  width: 150px;
+  height: 50px;
+  padding: 0.75rem;
   z-index: 900;
   text-align: center;
   cursor: pointer;
@@ -568,6 +581,7 @@ header {
 
 .slide4 .logo {
   margin-left: -0.75rem;
+  height: 150px;
 }
 
 .slide5 {
@@ -619,6 +633,7 @@ header {
 
 .slide5 .logo {
   margin-left: -0.75rem;
+  height: 150px;
 }
 
 .slide6 {
@@ -635,6 +650,10 @@ header {
 .slide6 .logo {
   width: 50rem;
   margin: 0 15rem;
+}
+
+.slide6 .logo img {
+  width: 100%;
 }
 
 .slide6 .img-wrapper {
@@ -699,7 +718,7 @@ header {
   width: 100vh;
 }
 
-.slide6 .stars svg {
+.slide6 .stars img {
   -webkit-animation: rotate360 20s infinite linear;
           animation: rotate360 20s infinite linear;
 }
@@ -1059,17 +1078,7 @@ header {
   height: 100%;
   position: relative;
   margin-left: 10rem;
-}
-
-.slide10 .numbers span,
-.slide11 .numbers span {
-  display: block;
-  position: absolute;
-  right: 18%;
-  top: 25vh;
-  -webkit-transform: rotate(-90deg) translate(0, -50%);
-          transform: rotate(-90deg) translate(0, -50%);
-  font-size: 9rem;
+  padding: 1rem 0 3rem 0;
 }
 
 .slide10 > .content,
@@ -1184,7 +1193,7 @@ header {
 .slide12 .text-content .year-2003-2 .sign {
   position: absolute;
   top: -20rem;
-  left: -3rem;
+  left: -2.5rem;
 }
 
 .slide12 .text-content .year-2013 {
@@ -1203,7 +1212,7 @@ header {
   margin: auto 0;
 }
 
-.slide12 .boat-path svg {
+.slide12 .boat-path img {
   height: 100%;
   width: calc(100% + 7rem);
 }
@@ -1212,6 +1221,10 @@ header {
   position: absolute;
   top: 83%;
   left: 17%;
+}
+
+.slide12 .boat-path .boat img {
+  width: 100%;
 }
 
 .slide12 .red-bg-box {
