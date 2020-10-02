@@ -453,7 +453,7 @@ header {
 }
 
 .slide3 {
-  background-color: white;
+  background-color: #f0f0f0;
   min-width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -499,7 +499,7 @@ header {
   padding-left: 35rem;
   height: 100%;
   width: auto;
-  background-color: #ffffff;
+  background-color: #f0f0f0;
 }
 
 .slide3 .documents {
@@ -712,7 +712,7 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #ffffff;
+  background-color: #f0f0f0;
   z-index: 600;
 }
 

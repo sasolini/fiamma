@@ -415,7 +415,7 @@ header {
 }
 
 .slide3 {
-  background-color: white;
+  background-color: $white;
   min-width: 100vw;
   display: flex;
   align-items: flex-end;
@@ -447,7 +447,7 @@ header {
     padding-left: 35rem;
     height: 100%;
     width: auto;
-    background-color: #ffffff;
+    background-color: $white;
   }
 
   .documents {
@@ -624,7 +624,7 @@ header {
 
 .slide7 {
   display: flex;
-  background-color: #ffffff;
+  background-color: $white;
   z-index: $layer600;
 
   & > .content {
