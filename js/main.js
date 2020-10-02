@@ -159,7 +159,7 @@ const Slide8Animation = () => {
   const { topPhoto, bottomPhoto, star } = UI.slide8.items;
   topPhoto.style.transform = setItemSlide(60, 66, 0, -110);
   bottomPhoto.style.transform = setItemSlide(60, 66, 0, 120);
-  star.style.transform = `${setItemSlide(0, 21, -138, 0)} ${setItemRotation(
+  star.style.transform = `${setItemSlide(0, 21, -142, 0)} ${setItemRotation(
     0,
     24,
     -180,
