@@ -345,7 +345,7 @@ header {
 }
 
 .slide1 {
-  background-image: url(../img/slide1/Group5_low.png);
+  background-image: url(../img/slide1/Nelson_Serra@2x.png);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -507,7 +507,7 @@ header {
   min-width: 100vw;
   display: flex;
   background-color: $brown;
-  // background: $brown url(../img/slide5/Smoke-background.png) no-repeat;
+  // background: $brown url(../img/slide5/Smoke-background@2x.png) no-repeat;
   // background-size: cover;
 
   .video-wrapper {
@@ -561,7 +561,6 @@ header {
 
   .img-wrapper {
     height: 100%;
-    // max-width: 90rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -653,9 +652,6 @@ header {
     background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/machines-bg.png);
     background-repeat: no-repeat;
     background-position: center right;
-    // -webkit-transition: background-image 800ms ease-in-out;
-    // -moz-transition: background-image 800ms ease-in-out;
-    // -o-transition: background-image 800ms ease-in-out;
     transition: background-image 800ms ease-in-out;
   }
 
@@ -705,29 +701,26 @@ header {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    // -webkit-transition: background-image 100ms ease-in-out;
-    // -moz-transition: background-image 100ms ease-in-out;
-    // -o-transition: background-image 100ms ease-in-out;
     transition: background-image 100ms ease-in-out;
   }
 
   .machines-selector .machine.astrolab .icon {
-    background-image: url('./img/slide7/astrolab@2x.png');
+    background-image: url('../img/slide7/astrolab@2x.png');
   }
   .machines-selector .machine.vela .icon {
-    background-image: url('./img/slide7/vela@2x.png');
+    background-image: url('../img/slide7/vela@2x.png');
   }
   .machines-selector .machine.compass .icon {
-    background-image: url('./img/slide7/compass@2x.png');
+    background-image: url('../img/slide7/compass@2x.png');
   }
   .machines-selector .machine.quadrant .icon {
-    background-image: url('./img/slide7/quadrant@2x.png');
+    background-image: url('../img/slide7/quadrant@2x.png');
   }
   .machines-selector .machine.caravel .icon {
-    background-image: url('./img/slide7/caravel@2x.png');
+    background-image: url('../img/slide7/caravel@2x.png');
   }
   .machines-selector .machine.marina .icon {
-    background-image: url('./img/slide7/marina@2x.png');
+    background-image: url('../img/slide7/marina@2x.png');
   }
 
   .machines-selector .machine.astrolab:hover .icon {
@@ -752,7 +745,6 @@ header {
   .machines-selector .machine .name {
     font-size: 22px;
     font-family: var(--bold);
-    /* line-height: 34px; */
     color: var(--black);
     margin-top: 18px;
   }

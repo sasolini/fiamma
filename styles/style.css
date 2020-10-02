@@ -377,7 +377,7 @@ header {
 }
 
 .slide1 {
-  background-image: url(../img/slide1/Group5_low.png);
+  background-image: url(../img/slide1/Nelson_Serra@2x.png);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
@@ -805,27 +805,27 @@ header {
 }
 
 .slide7 .machines-selector .machine.astrolab .icon {
-  background-image: url("./img/slide7/astrolab@2x.png");
+  background-image: url("../img/slide7/astrolab@2x.png");
 }
 
 .slide7 .machines-selector .machine.vela .icon {
-  background-image: url("./img/slide7/vela@2x.png");
+  background-image: url("../img/slide7/vela@2x.png");
 }
 
 .slide7 .machines-selector .machine.compass .icon {
-  background-image: url("./img/slide7/compass@2x.png");
+  background-image: url("../img/slide7/compass@2x.png");
 }
 
 .slide7 .machines-selector .machine.quadrant .icon {
-  background-image: url("./img/slide7/quadrant@2x.png");
+  background-image: url("../img/slide7/quadrant@2x.png");
 }
 
 .slide7 .machines-selector .machine.caravel .icon {
-  background-image: url("./img/slide7/caravel@2x.png");
+  background-image: url("../img/slide7/caravel@2x.png");
 }
 
 .slide7 .machines-selector .machine.marina .icon {
-  background-image: url("./img/slide7/marina@2x.png");
+  background-image: url("../img/slide7/marina@2x.png");
 }
 
 .slide7 .machines-selector .machine.astrolab:hover .icon {
@@ -855,7 +855,6 @@ header {
 .slide7 .machines-selector .machine .name {
   font-size: 22px;
   font-family: var(--bold);
-  /* line-height: 34px; */
   color: var(--black);
   margin-top: 18px;
 }
