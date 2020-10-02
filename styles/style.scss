@@ -971,6 +971,8 @@ header {
 .slide12 {
   background-color: $brown;
   display: flex;
+  position: sticky;
+  left: -2800px;
 
   .img-wrapper {
     height: 100%;

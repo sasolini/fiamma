@@ -1104,6 +1104,9 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: -webkit-sticky;
+  position: sticky;
+  left: -2800px;
 }
 
 .slide12 .img-wrapper {
