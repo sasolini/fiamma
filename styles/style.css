@@ -180,7 +180,6 @@ section {
   background-color: #362928;
   color: white;
   padding: 30px;
-  border: 1px solid #fe6153;
 }
 
 .slide-index-box > .content .icon-small {
@@ -231,6 +230,32 @@ section {
   height: 100%;
 }
 
+.link-logo-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 200px;
+  height: 60px;
+  z-index: 900;
+  text-align: center;
+  cursor: pointer;
+}
+
+.link-logo-fixed svg {
+  width: 60%;
+}
+
+header {
+  width: 100%;
+  min-height: 107px;
+  background-color: #362928;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
 .home {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -238,6 +263,7 @@ section {
   background-color: #362928;
   min-width: 100vw;
   overflow-x: hidden;
+  z-index: 900;
 }
 
 .home > .content {
@@ -422,8 +448,8 @@ section {
 
 .slide2 .waves-wrapper {
   top: 50%;
-  left: -22%;
-  min-width: 70%;
+  left: 0;
+  min-width: 44%;
 }
 
 .slide3 {
@@ -520,9 +546,9 @@ section {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-left: 30rem;
 }
 
@@ -533,10 +559,15 @@ section {
 .slide4 h2 {
   color: #ffffff;
   width: 41rem;
+  visibility: hidden;
 }
 
 .slide4 .big-date {
   color: #ffffff;
+}
+
+.slide4 .logo {
+  margin-left: -2.25rem;
 }
 
 .slide5 {
@@ -587,7 +618,7 @@ section {
 }
 
 .slide5 .logo {
-  margin-left: 5rem;
+  margin-left: -0.75rem;
 }
 
 .slide6 {
@@ -673,11 +704,16 @@ section {
           animation: rotate360 20s infinite linear;
 }
 
+.slide6 .slide-index-box .content {
+  margin-left: 800px;
+}
+
 .slide7 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background-color: #ffffff;
+  z-index: 600;
 }
 
 .slide7 > .content {
@@ -699,6 +735,138 @@ section {
   margin-left: 7rem;
 }
 
+.slide7 .machines-wrapper {
+  font-family: 'averta-regular';
+  margin: auto 0 auto 10rem;
+  padding-right: 480px;
+  background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/machines-bg.png);
+  background-repeat: no-repeat;
+  background-position: center right;
+  -webkit-transition: background-image 800ms ease-in-out;
+  transition: background-image 800ms ease-in-out;
+}
+
+.slide7 .machines-wrapper.astrolab {
+  background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/astrolab-side.png) !important;
+}
+
+.slide7 .machines-wrapper.caravel {
+  background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/caravel-side.png) !important;
+}
+
+.slide7 .machines-wrapper.vela {
+  background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/vela-side.png) !important;
+}
+
+.slide7 .machines-wrapper.marina {
+  background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/marina-side.png) !important;
+}
+
+.slide7 .machines-wrapper.quadrant {
+  background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/quadrant-side.png) !important;
+}
+
+.slide7 .machines-wrapper.compass {
+  background-image: url(https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/compass-side.png) !important;
+}
+
+.slide7 .machines-selector {
+  width: 400px;
+  grid-gap: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[8];
+      grid-template-columns: repeat(8, 1fr);
+}
+
+.slide7 .machines-selector .machine {
+  grid-column: span 4;
+  text-align: center;
+  padding: 50px 0 40px;
+  text-decoration: none;
+  outline: none;
+  width: 200px;
+  overflow: hidden;
+}
+
+.slide7 .machines-selector .machine:hover {
+  background-color: var(--white);
+  -webkit-box-shadow: 0 30px 30px -15px rgba(255, 94, 80, 0.15);
+          box-shadow: 0 30px 30px -15px rgba(255, 94, 80, 0.15);
+}
+
+.slide7 .machines-selector .machine .icon {
+  height: 90px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-transition: background-image 100ms ease-in-out;
+  transition: background-image 100ms ease-in-out;
+}
+
+.slide7 .machines-selector .machine.astrolab .icon {
+  background-image: url("./img/slide7/astrolab@2x.png");
+}
+
+.slide7 .machines-selector .machine.vela .icon {
+  background-image: url("./img/slide7/vela@2x.png");
+}
+
+.slide7 .machines-selector .machine.compass .icon {
+  background-image: url("./img/slide7/compass@2x.png");
+}
+
+.slide7 .machines-selector .machine.quadrant .icon {
+  background-image: url("./img/slide7/quadrant@2x.png");
+}
+
+.slide7 .machines-selector .machine.caravel .icon {
+  background-image: url("./img/slide7/caravel@2x.png");
+}
+
+.slide7 .machines-selector .machine.marina .icon {
+  background-image: url("./img/slide7/marina@2x.png");
+}
+
+.slide7 .machines-selector .machine.astrolab:hover .icon {
+  background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/astrolab@2x.png");
+}
+
+.slide7 .machines-selector .machine.vela:hover .icon {
+  background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/vela@2x.png");
+}
+
+.slide7 .machines-selector .machine.compass:hover .icon {
+  background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/compass@2x.png");
+}
+
+.slide7 .machines-selector .machine.quadrant:hover .icon {
+  background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/quadrant@2x.png");
+}
+
+.slide7 .machines-selector .machine.caravel:hover .icon {
+  background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/caravel@2x.png");
+}
+
+.slide7 .machines-selector .machine.marina:hover .icon {
+  background-image: url("https://www.fiammaespresso.com/wp-content/themes/fiamma/images/machines/marina@2x.png");
+}
+
+.slide7 .machines-selector .machine .name {
+  font-size: 22px;
+  font-family: var(--bold);
+  /* line-height: 34px; */
+  color: var(--black);
+  margin-top: 18px;
+}
+
+.slide7 .machines-selector .machine .version {
+  margin-top: 20px;
+  color: var(--grey-dark);
+  font-size: 13px;
+  opacity: 0.5;
+}
+
 .slide8 {
   background-color: #f0f0f0;
   display: -webkit-box;
@@ -718,6 +886,10 @@ section {
   margin: auto;
   position: relative;
   z-index: 2;
+  -webkit-transform: translate(-135%, 0);
+          transform: translate(-135%, 0);
+  -webkit-transition: rotate 150ms;
+  transition: rotate 150ms;
 }
 
 .slide8 .small-star-wrapper {
@@ -783,6 +955,8 @@ section {
           transform: translate(0, 10%);
   right: 7rem;
   bottom: 0;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
 }
 
 .slide8 .bottom-row {
@@ -964,6 +1138,8 @@ section {
   height: 100%;
   width: 100%;
   z-index: 2;
+  max-height: 768px;
+  margin: auto 0;
 }
 
 .slide12 .text-content h2 {
@@ -1021,6 +1197,8 @@ section {
   left: 40rem;
   width: 100%;
   height: 100vh;
+  max-height: 768px;
+  margin: auto 0;
 }
 
 .slide12 .boat-path svg {
@@ -1067,6 +1245,7 @@ section {
   display: flex;
   min-width: 100vw;
   overflow: hidden;
+  z-index: 900;
 }
 
 .slide13 .white-bg {
@@ -1119,6 +1298,8 @@ section {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: relative;
+  z-index: 1000;
 }
 
 .slide13 .content {

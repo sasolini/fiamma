@@ -17,6 +17,7 @@ const UI = {
     items: {
       topPhoto: document.getElementById('js-top-photo'),
       bottomPhoto: document.getElementById('js-bottom-photo'),
+      star: document.getElementById('js-star'),
     },
   },
 };
@@ -45,7 +46,6 @@ const calcSlideIndexBoxOffset = slideClassName => {
 
   if (scrollX > slideStart + boxOffset && scrollX < slideEnd && boxOffset > 0) {
     box.style.marginLeft = `0px`;
-
   }
 
   if (
@@ -75,7 +75,7 @@ const getSlideCenterViewPercen = slideClassName => {
     ).toFixed(2);
   }
 
-  console.log(currentCenterPositionPercent);
+  // console.log(currentCenterPositionPercent);
 
   return {
     currentPositionPercent,
@@ -84,7 +84,7 @@ const getSlideCenterViewPercen = slideClassName => {
   };
 };
 
-const setItemScale = (edge, center, item) => {
+const setItemScale = (edge, center) => {
   const { currentCenterPositionPercent } = getSlideCenterViewPercen('slide3');
   const itemScale = center - edge;
 
@@ -95,25 +95,25 @@ const setItemScale = (edge, center, item) => {
     const scale = ((currentCenterPositionPercent - edge) / itemScale).toFixed(
       2
     );
-    item.style.transform = `scale(${scale})`;
+    return `scale(${scale})`;
   } else if (currentCenterPositionPercent > center) {
-    item.style.transform = `scale(1)`;
+    return `scale(1)`;
   } else if (currentCenterPositionPercent < edge) {
-    item.style.transform = `scale(0.2)`;
+    return `scale(0.2)`;
   }
 };
 
 const Slide3Animation = () => {
   const { articleOne, articleTwo, articleThree } = UI.slide3.items;
-  setItemScale(38, 55, articleOne);
-  setItemScale(48, 71, articleTwo);
-  setItemScale(58, 85, articleThree);
+  articleOne.style.transform = setItemScale(38, 55);
+  articleTwo.style.transform = setItemScale(48, 71);
+  articleThree.style.transform = setItemScale(58, 85);
 };
 
-// TODO
-const setItemSlide = (edge, center, item, direction) => {
+const setItemSlide = (edge, center, startPosition, endPosition) => {
   const { currentCenterPositionPercent } = getSlideCenterViewPercen('slide8');
   const itemScale = center - edge;
+  const movePercent = endPosition - startPosition;
 
   if (
     currentCenterPositionPercent > edge &&
@@ -122,21 +122,50 @@ const setItemSlide = (edge, center, item, direction) => {
     const scale = ((currentCenterPositionPercent - edge) / itemScale).toFixed(
       2
     );
-    item.style.transform = `translate(${direction === 'left' ? '-' : ''}${
-      scale * 100 + 20
-    }%)`;
-    console.log(scale);
-  } else if (currentCenterPositionPercent > center) {
-    item.style.transform = `translate(${direction === 'left' ? '-' : ''}120%)`;
-  } else if (currentCenterPositionPercent < edge) {
-    item.style.transform = `translate(0%)`;
+    return `translate(${startPosition + scale * movePercent}%, 0)`;
+  } else if (currentCenterPositionPercent >= center) {
+    return `translate(${endPosition}%, 0)`;
+  } else if (currentCenterPositionPercent <= edge) {
+    return `translate(${startPosition}%, 0)`;
+  }
+};
+
+const setItemRotation = (
+  edge,
+  center,
+  startPosition,
+  endPosition,
+  rotation
+) => {
+  const { currentCenterPositionPercent } = getSlideCenterViewPercen('slide8');
+  const itemScale = center - edge;
+
+  if (
+    currentCenterPositionPercent > edge &&
+    currentCenterPositionPercent < center
+  ) {
+    const scale = Math.ceil(
+      ((currentCenterPositionPercent - edge) / itemScale) * rotation
+    );
+    return `rotate(${startPosition + scale}deg)`;
+  } else if (currentCenterPositionPercent >= center) {
+    return `rotate(${endPosition}deg)`;
+  } else if (currentCenterPositionPercent <= edge) {
+    return `rotate(${startPosition}deg)`;
   }
 };
 
 const Slide8Animation = () => {
-  const { topPhoto, bottomPhoto } = UI.slide8.items;
-  setItemSlide(60, 68, topPhoto, 'left');
-  setItemSlide(60, 66, bottomPhoto);
+  const { topPhoto, bottomPhoto, star } = UI.slide8.items;
+  topPhoto.style.transform = setItemSlide(60, 66, 0, -110);
+  bottomPhoto.style.transform = setItemSlide(60, 66, 0, 120);
+  star.style.transform = `${setItemSlide(0, 21, -135, 0)} ${setItemRotation(
+    0,
+    24,
+    -180,
+    0,
+    180
+  )}`;
 };
 
 (function () {
@@ -158,16 +187,16 @@ const Slide8Animation = () => {
     window.attachEvent('onmousewheel', initAll);
   }
 
-  function handleMachineSelector(){
+  function handleMachineSelector() {
     var wrapper = document.querySelector('.machines-wrapper');
     var machines = document.querySelectorAll('.machines-wrapper .machine');
 
-    machines.forEach(function(machine) {
+    machines.forEach(function (machine) {
       machine.addEventListener('mouseenter', function () {
-          wrapper.classList.add(machine.dataset.target);
+        wrapper.classList.add(machine.dataset.target);
       });
       machine.addEventListener('mouseleave', function () {
-          wrapper.classList.remove(machine.dataset.target);
+        wrapper.classList.remove(machine.dataset.target);
       });
     });
   }
