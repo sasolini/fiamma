@@ -20,6 +20,14 @@ const UI = {
       star: document.getElementById('js-star'),
     },
   },
+  slide12: {
+    slide: document.getElementsByClassName('slide12')[0],
+    items: {
+      boatPathWrapper: document.getElementById('js-boat-path-wrapper'),
+      boatPath: document.getElementById('js-boat-path'),
+      boat: document.getElementById('js-boat'),
+    },
+  },
 };
 
 const setScroll = e => {
@@ -62,12 +70,11 @@ const getSlideCenterViewPercen = slideClassName => {
   let currentPositionPercent = 0;
   let currentCenterPositionPercent = 0;
   const { slideStart, slideEnd } = getSlidePosition(slideClassName);
+  const slideWidth = slideEnd - slideStart;
+  const currentPosition = scrollX - slideStart;
+  const currentCenterPosition = scrollX + halfWindowWidth - slideStart;
 
   if (scrollX > slideStart - halfWindowWidth && scrollX < slideEnd) {
-    const slideWidth = slideEnd - slideStart;
-    const currentPosition = scrollX - slideStart;
-    const currentCenterPosition = scrollX + halfWindowWidth - slideStart;
-
     currentPositionPercent = ((currentPosition / slideWidth) * 100).toFixed(2);
     currentCenterPositionPercent = (
       (currentCenterPosition / slideWidth) *
@@ -81,6 +88,7 @@ const getSlideCenterViewPercen = slideClassName => {
     currentPositionPercent,
     currentCenterPositionPercent,
     halfWindowWidth,
+    currentCenterPosition,
   };
 };
 
@@ -168,6 +176,32 @@ const Slide8Animation = () => {
   )}`;
 };
 
+//TODO
+const boatAimation = () => {
+  const { currentCenterPosition, halfWindowWidth } = getSlideCenterViewPercen(
+    'slide12'
+  );
+  const { boatPathWrapper, boatPath, boat } = UI.slide12.items;
+  const boatPathOffset = boatPathWrapper.offsetLeft;
+
+  const currentBoatPathCenterPosition = currentCenterPosition - 300;
+  const boatPathEndPosition =
+    currentCenterPosition - boatPathOffset + boatPath.getTotalLength();
+
+  if (
+    currentBoatPathCenterPosition > 0 &&
+    currentCenterPosition < boatPathEndPosition
+  ) {
+    let { x, y } = boatPath.getPointAtLength(currentBoatPathCenterPosition);
+
+    boat.style.top = `${y.toFixed(0)}px`;
+    boat.style.left = `${x.toFixed(0)}px`;
+  } else if (currentBoatPathCenterPosition < 0) {
+    boat.style.top = `480px`;
+    boat.style.left = `30px`;
+  }
+};
+
 (function () {
   function initAll(e) {
     setScroll(e);
@@ -175,6 +209,7 @@ const Slide8Animation = () => {
     Slide3Animation();
     Slide8Animation();
     handleMachineSelector();
+    boatAimation();
   }
 
   if (window.addEventListener) {
