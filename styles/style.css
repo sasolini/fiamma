@@ -454,6 +454,15 @@ header {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  position: relative;
+}
+
+.slide3 .lines-bg {
+  position: absolute;
+  left: 400px;
+  top: 0;
+  height: 100%;
+  z-index: -1;
 }
 
 .slide3 > .content {
@@ -718,6 +727,15 @@ header {
 .slide7 > .content {
   height: 80%;
   margin: auto 10rem 0 20rem;
+  position: relative;
+}
+
+.slide7 > .content .img-wrapper {
+  position: absolute;
+  top: -5.5rem;
+  left: -3.8rem;
+  z-index: -1;
+  height: 11rem;
 }
 
 .slide7 > .content h2 {
@@ -1026,7 +1044,7 @@ header {
 
 .slide9 .big-letters {
   height: 100%;
-  width: 280vh;
+  width: 240vh;
 }
 
 .slide9 .big-letters p,
@@ -1077,8 +1095,8 @@ header {
 
 .slide10 .waves-wrapper {
   top: 50%;
-  left: -40%;
-  min-width: 80%;
+  left: 0;
+  min-width: 40%;
 }
 
 .slide11 .waves-wrapper {
@@ -1095,6 +1113,10 @@ header {
   position: -webkit-sticky;
   position: sticky;
   left: -2800px;
+}
+
+.slide12 .slide-index-box {
+  margin-left: 300px;
 }
 
 .slide12 .img-wrapper {

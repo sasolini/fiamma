@@ -416,6 +416,15 @@ header {
   min-width: 100vw;
   display: flex;
   align-items: flex-end;
+  position: relative;
+
+  .lines-bg {
+    position: absolute;
+    left: 400px;
+    top: 0;
+    height: 100%;
+    z-index: -1;
+  }
 
   & > .content {
     flex: 1;
@@ -632,6 +641,15 @@ header {
   & > .content {
     height: 80%;
     margin: auto 10rem 0 20rem;
+    position: relative;
+
+    .img-wrapper {
+      position: absolute;
+      top: -5.5rem;
+      left: -3.8rem;
+      z-index: -1;
+      height: 11rem;
+    }
 
     h2 {
       width: 40rem;
@@ -898,7 +916,7 @@ header {
 
   .big-letters {
     height: 100%;
-    width: 280vh;
+    width: 240vh;
     p,
     span {
       font-size: 150vh;
@@ -942,8 +960,8 @@ header {
 .slide10 {
   .waves-wrapper {
     top: 50%;
-    left: -40%;
-    min-width: 80%;
+    left: 0;
+    min-width: 40%;
   }
 }
 
@@ -960,6 +978,10 @@ header {
   display: flex;
   position: sticky;
   left: -2800px;
+
+  .slide-index-box {
+    margin-left: 300px;
+  }
 
   .img-wrapper {
     height: 100%;
