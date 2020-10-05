@@ -394,7 +394,7 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  min-width: 160vh;
+  min-width: 100vw;
 }
 
 .slide2 {
@@ -402,6 +402,8 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  width: 101vw;
+  overflow: hidden;
 }
 
 .slide2 > .content {
@@ -410,7 +412,6 @@ header {
       -ms-grid-row-align: center;
       align-self: center;
   margin-bottom: 5rem;
-  padding-right: 9rem;
 }
 
 .slide2 > .content p,
@@ -428,7 +429,13 @@ header {
       align-self: flex-end;
   position: relative;
   padding-right: 10rem;
-  height: 70vh;
+  -ms-flex-preferred-size: 66%;
+      flex-basis: 66%;
+  margin-left: -16rem;
+}
+
+.slide2 > .img-wrapper img {
+  height: 77vh;
 }
 
 .slide2 .numbers {
@@ -888,6 +895,7 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  left: -134rem;
 }
 
 .slide8 .star-wrapper {
@@ -1013,11 +1021,13 @@ header {
   display: -ms-flexbox;
   display: flex;
   min-width: 100vw;
+  left: -107rem;
 }
 
 .slide9 > .content {
   height: 80%;
   margin-top: auto;
+  margin-left: 10rem;
 }
 
 .slide9 h2 {
@@ -1067,7 +1077,7 @@ header {
 .slide11 .img-wrapper {
   -ms-flex-item-align: end;
       align-self: flex-end;
-  height: 80vh;
+  height: 70vh;
 }
 
 .slide10 .numbers,
@@ -1124,8 +1134,8 @@ header {
 }
 
 .slide12 .cross {
-  width: 17vh;
-  position: relative;
+  width: 7vh;
+  margin-left: -5rem;
   z-index: 2;
 }
 
