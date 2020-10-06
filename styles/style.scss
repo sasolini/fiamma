@@ -94,6 +94,16 @@ img {
   display: none;
 }
 
+.fade-text {
+  opacity: 0;
+  transition: opacity 400ms ease-in-out;
+
+  &.show {
+    opacity: 1;
+    transition: opacity 400ms ease-in-out;
+  }
+}
+
 p,
 span {
   font-family: 'averta-regular';
