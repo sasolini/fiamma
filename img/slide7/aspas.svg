@@ -1,9 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="194px" height="144px" viewBox="0 0 194 144" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>“</title>
-    <g id="Assets" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Artboard-Copy" transform="translate(-53.000000, 0.000000)" fill="#362928" fill-rule="nonzero">
-            <path d="M127.307692,144 L144,0 L88.2692308,0 L53,144 L127.307692,144 Z M230.175074,144 L247,0 L191.718101,0 L157,144 L230.175074,144 Z" id="“"></path>
-        </g>
-    </g>
-</svg>
+<svg height="144" viewBox="0 0 194 144" width="194" xmlns="http://www.w3.org/2000/svg"><path d="m127.307692 144 16.692308-144h-55.7307692l-35.2692308 144zm102.867382 0 16.824926-144h-55.281899l-34.718101 144z" fill="#362928" transform="translate(-53)"/></svg>
