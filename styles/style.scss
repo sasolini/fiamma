@@ -1008,12 +1008,14 @@ header {
 
   .map-wrapper {
     position: relative;
-    width: 300rem;
+    width: 310rem;
+    display: flex;
   }
 
   .map {
     height: 100%;
     width: auto;
+    order: 1;
 
     img {
       width: 100%;
@@ -1024,7 +1026,8 @@ header {
   .text-content {
     position: absolute;
     left: 40rem;
-    top: 0;
+    top: 50%;
+    transform: translate(0, -50%);
     height: 100%;
     width: 100%;
     z-index: 2;
@@ -1083,22 +1086,18 @@ header {
 
   .boat-path {
     position: absolute;
-    top: -1rem;
+    // top: -1rem;
+    top: calc(50% - 1rem);
+    transform: translate(0, -50%);
     left: 40rem;
-    width: 100%;
     height: 100vh;
-    max-height: 768px;
-    margin: auto 0;
-
-    img {
-      height: 100%;
-      width: calc(100% + 7rem);
-    }
+    max-height: 705px;
 
     .boat {
       position: absolute;
-      top: 83%;
-      left: 17%;
+      top: 480px;
+      left: 30px;
+      transform: translate(-50%, -50%);
 
       img {
         width: 100%;

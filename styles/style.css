@@ -1141,12 +1141,18 @@ header {
 
 .slide12 .map-wrapper {
   position: relative;
-  width: 300rem;
+  width: 310rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .slide12 .map {
   height: 100%;
   width: auto;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 .slide12 .map img {
@@ -1157,7 +1163,9 @@ header {
 .slide12 .text-content {
   position: absolute;
   left: 40rem;
-  top: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   height: 100%;
   width: 100%;
   z-index: 2;
@@ -1216,23 +1224,20 @@ header {
 
 .slide12 .boat-path {
   position: absolute;
-  top: -1rem;
+  top: calc(50% - 1rem);
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   left: 40rem;
-  width: 100%;
   height: 100vh;
-  max-height: 768px;
-  margin: auto 0;
-}
-
-.slide12 .boat-path img {
-  height: 100%;
-  width: calc(100% + 7rem);
+  max-height: 705px;
 }
 
 .slide12 .boat-path .boat {
   position: absolute;
-  top: 83%;
-  left: 17%;
+  top: 480px;
+  left: 30px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .slide12 .boat-path .boat img {
