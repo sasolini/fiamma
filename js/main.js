@@ -202,9 +202,21 @@ const boatAimation = () => {
   }
 };
 
+const textFade = () => {
+    document.querySelectorAll('.fade-text').forEach( text => {
+        const offsetRatio = text.getBoundingClientRect().left / window.innerWidth;
+        if (offsetRatio <= 0.58) {
+           text.classList.add('show'); 
+        } else {
+           text.classList.remove('show'); 
+        }
+    });
+};
+
 (function () {
   function initAll(e) {
     setScroll(e);
+    textFade();
     calcSlideIndexBoxOffset('slide3');
     Slide3Animation();
     Slide8Animation();
