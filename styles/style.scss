@@ -261,6 +261,16 @@ section {
   }
 }
 
+.outline-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-repeat: repeat-x;
+  height: 120px;
+  width: 100%;
+  z-index: -1;
+}
+
 header {
   width: 100%;
   min-height: 107px;
@@ -357,6 +367,10 @@ header {
         left: 0;
       }
     }
+  }
+
+  .outline-text {
+    background: url(../img/outlines/pt/a_nossa_historia_pt.svg);
   }
 }
 
@@ -458,12 +472,18 @@ header {
     }
   }
 
+  .outline-text {
+    background: url(../img/outlines/pt/fundacao_RST_pt.svg);
+    left: 300px;
+    z-index: 2;
+  }
+
   .map {
     display: inline-block;
     padding-left: 35rem;
     height: 100%;
     width: auto;
-    background-color: $white;
+    z-index: 3;
   }
 
   .documents {
@@ -472,6 +492,7 @@ header {
     background-color: #fe6153;
     display: flex;
     align-items: center;
+    z-index: 3;
 
     .article {
       height: 100vh;
@@ -517,6 +538,15 @@ header {
   .logo {
     margin-left: -0.75rem;
     height: 150px;
+  }
+}
+
+.slide4,
+.slide5 {
+  .outline-text {
+    left: 350px;
+    background: url(../img/outlines/pt/nasce_a_Fiamma_pt.svg);
+    background-repeat: no-repeat;
   }
 }
 
@@ -926,6 +956,12 @@ header {
     }
   }
 
+  .outline-text {
+    background: url(../img/outlines/pt/novos_rumos_expansao_pt.svg);
+    left: 350px;
+    z-index: 2;
+  }
+
   .big-letters {
     height: 100%;
     width: 240vh;
@@ -935,6 +971,14 @@ header {
       line-height: 90vh;
       font-family: 'averta-bold';
     }
+  }
+}
+
+.slide10 {
+  .waves-wrapper {
+    top: 50%;
+    left: 0;
+    min-width: 40%;
   }
 }
 
@@ -969,14 +1013,6 @@ header {
   }
 }
 
-.slide10 {
-  .waves-wrapper {
-    top: 50%;
-    left: 0;
-    min-width: 40%;
-  }
-}
-
 .slide11 {
   .waves-wrapper {
     top: 50%;
@@ -1002,7 +1038,6 @@ header {
   .cross {
     width: 7vh;
     margin-left: -5rem;
-    // position: relative;
     z-index: 2;
   }
 
@@ -1023,6 +1058,12 @@ header {
     }
   }
 
+  .outline-text {
+    background: url(../img/outlines/pt/conquistando_o_futuro_pt.svg);
+    left: 650px;
+    z-index: 2;
+  }
+
   .text-content {
     position: absolute;
     left: 40rem;
@@ -1033,6 +1074,7 @@ header {
     z-index: 2;
     max-height: 768px;
     margin: auto 0;
+    z-index: 10;
 
     h2 {
       margin: 18rem 0 5rem 10rem;
